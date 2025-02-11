@@ -1,0 +1,111 @@
+body {
+  width: 300px;
+  max-height: 500px;
+  margin: 0;
+  padding: 10px;
+  font-family: -apple-system, system-ui;
+  font-size: 12px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.header h2 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.clipboard-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.clipboard-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 4px 8px;
+  border-bottom: 1px solid #eee;
+  height: 24px;
+  position: relative;
+  user-select: none;
+}
+
+.clipboard-text-container {
+  flex: 1;
+  margin-right: 10px;
+  overflow: hidden;
+}
+
+.clipboard-text {
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease;
+  user-select: text;
+}
+
+.pin-container {
+  position: relative;
+  z-index: 1001;
+}
+
+.pin-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  font-size: 12px;
+}
+
+.pin-btn.pinned {
+  opacity: 1;
+}
+
+.clipboard-item:hover .clipboard-text {
+  white-space: normal;
+  overflow: visible;
+  background: white;
+  position: relative;
+  z-index: 1000;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.button-container {
+  display: flex;
+  gap: 2px;
+  position: relative;
+  z-index: 1001;
+}
+
+.copy-btn, .pin-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  opacity: 0;  /* Hidden by default */
+  transition: opacity 0.2s ease;
+}
+
+/* Show buttons on hover */
+.clipboard-item:hover .copy-btn,
+.clipboard-item:hover .pin-btn {
+  opacity: 1;
+}
+
+/* Always show pinned emoji */
+.pin-btn.pinned {
+  opacity: 1;
+}
