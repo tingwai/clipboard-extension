@@ -5,6 +5,8 @@ body {
   padding: 10px;
   font-family: -apple-system, system-ui;
   font-size: 12px;
+  background: #1e1e1e;
+  color: #e0e0e0;
 }
 
 .header {
@@ -12,11 +14,14 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 8px;
 }
 
 .header h2 {
   font-size: 14px;
   margin: 0;
+  color: #fff;
 }
 
 .clear-btn {
@@ -24,6 +29,11 @@ body {
   border: none;
   font-size: 16px;
   cursor: pointer;
+  opacity: 0.7;
+}
+
+.clear-btn:hover {
+  opacity: 1;
 }
 
 .clipboard-list {
@@ -36,7 +46,7 @@ body {
   justify-content: space-between;
   align-items: start;
   padding: 4px 8px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #333;
   height: 24px;
   position: relative;
   user-select: none;
@@ -55,6 +65,7 @@ body {
   text-overflow: ellipsis;
   transition: all 0.3s ease;
   user-select: text;
+  color: #d0d0d0;
 }
 
 .pin-container {
@@ -74,13 +85,17 @@ body {
   opacity: 1;
 }
 
+.clipboard-item:hover {
+  background: #2a2a2a;
+}
+
 .clipboard-item:hover .clipboard-text {
   white-space: normal;
   overflow: visible;
-  background: white;
+  background: #2a2a2a;
   position: relative;
   z-index: 1000;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 .button-container {
@@ -95,17 +110,40 @@ body {
   border: none;
   cursor: pointer;
   font-size: 12px;
-  opacity: 0;  /* Hidden by default */
+  opacity: 0;
   transition: opacity 0.2s ease;
 }
 
 /* Show buttons on hover */
 .clipboard-item:hover .copy-btn,
 .clipboard-item:hover .pin-btn {
+  opacity: 0.7;
+}
+
+.clipboard-item:hover .copy-btn:hover,
+.clipboard-item:hover .pin-btn:hover {
   opacity: 1;
 }
 
 /* Always show pinned emoji */
 .pin-btn.pinned {
-  opacity: 1;
+  opacity: 0.7;
+}
+
+/* Scrollbar styling */
+.clipboard-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.clipboard-list::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.clipboard-list::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+.clipboard-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
